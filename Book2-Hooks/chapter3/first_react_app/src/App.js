@@ -2,12 +2,12 @@ import Products from "./Products";
 import { Button } from "react-bootstrap";
 import Rating from "./Ratings";
 
-function formatName(user) {
-  return user.firstName + " " + user.lastName;
-}
+// function formatName(user) {
+//   return user.firstName + " " + user.lastName;
+// }
 
 function App() {
-  const isValid = false;
+  const isValid = true;
   return (
     <div>
       <Products />
