@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-
 function UserForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
   const handleSubmit = (event) => {
     event.preventDefault();
     var emailValid = false;
-    if (email.length === 0) {
+    if (email.length == 0) {
       setEmailError("Email is required");
     } else if (email.length < 6) {
       setEmailError("Email should be minimum 6 characters");
@@ -21,7 +19,7 @@ function UserForm() {
       emailValid = true;
     }
     var passwordValid = false;
-    if (password.length === 0) {
+    if (password.length == 0) {
       setPasswordError("Password is required");
     } else if (password.length < 6) {
       setPasswordError("Password should be minimum 6 characters");
