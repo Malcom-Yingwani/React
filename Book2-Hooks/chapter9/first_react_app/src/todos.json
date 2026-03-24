@@ -1,0 +1,17 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Go to Gym"
+    },
+    {
+      "id": "2",
+      "text": "Do some wood whittling"
+    },
+    {
+      "id": "3",
+      "text": "pray"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
