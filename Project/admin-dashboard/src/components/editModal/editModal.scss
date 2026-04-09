@@ -1,0 +1,107 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .modalContainer {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .modalFormInput {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        label {
+          font-size: 13px;
+          font-weight: 500;
+          color: gray;
+        }
+
+        input {
+          padding: 8px 12px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 14px;
+          outline: none;
+
+          &:focus {
+            border-color: #7451f8;
+          }
+        }
+      }
+
+      .modalButtons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 10px;
+
+        button {
+          padding: 8px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .cancelButton {
+          background-color: #f0f0f0;
+          color: #333;
+
+          &:hover {
+            background-color: #ddd;
+          }
+        }
+
+        .saveButton {
+          background-color: #7451f8;
+          color: white;
+
+          &:hover {
+            background-color: #5f3dc4;
+          }
+        }
+      }
+    }
+  }
+}
+
+.app.dark .modalContainer {
+  background-color: #222;
+  color: #999;
+
+  h2 {
+    color: #999;
+  }
+
+  input {
+    background-color: #333;
+    border-color: #444;
+    color: #999;
+  }
+}

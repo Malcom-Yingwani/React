@@ -13,10 +13,12 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
 function Sidebar() {
   const { dispatch } = useContext(DarkModeContext);
+  const { dispatch: authDispatch } = useContext(AuthContext);
   return (
     <div className="sidebar">
       <div className="top">
@@ -82,7 +84,7 @@ function Sidebar() {
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={() => authDispatch({ type: "LOGOUT" })}>Logout</span>
           </li>
         </ul>
       </div>

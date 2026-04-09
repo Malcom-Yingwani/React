@@ -2,31 +2,24 @@ import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { auth, db } from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
-const New = ({ inputs, title }) => {
+const NewProduct = ({ inputs, title }) => {
   const [data, setData] = useState({});
   const navigate = useNavigate();
 
   const handleInput = (e) => {
     const id = e.target.id;
     const value = e.target.value;
-
     setData({ ...data, [id]: value });
   };
 
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const res = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password,
-      );
-      await setDoc(doc(db, "users", res.user.uid), {
+      await addDoc(collection(db, "products"), {
         ...data,
         timeStamp: serverTimestamp(),
       });
@@ -67,4 +60,4 @@ const New = ({ inputs, title }) => {
   );
 };
 
-export default New;
+export default NewProduct;
