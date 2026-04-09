@@ -51,9 +51,73 @@
   }
 
   .datatable {
+    background-color: #111;
+
     .datagrid {
+      background-color: #111;
       color: gray;
       border: none;
+
+      .MuiDataGrid-root {
+        background-color: #111;
+      }
+
+      .MuiDataGrid-toolbarContainer {
+        background-color: #111;
+      }
+
+      .MuiDataGrid-columnHeaders {
+        background-color: #1a1a1a;
+        color: gray;
+        border-color: #333;
+      }
+
+      .MuiDataGrid-columnHeader {
+        background-color: #1a1a1a;
+      }
+
+      .MuiDataGrid-columnHeadersInner {
+        background-color: #1a1a1a;
+      }
+
+      // The white block in the top-right corner (scrollbar filler / overflow area)
+      .MuiDataGrid-scrollbarFiller,
+      .MuiDataGrid-scrollbarFiller--header,
+      .MuiDataGrid-filler {
+        background-color: #1a1a1a;
+        border-color: #333;
+      }
+
+      .MuiDataGrid-row {
+        background-color: #111;
+
+        &:hover {
+          background-color: #222;
+        }
+      }
+
+      .MuiDataGrid-cell {
+        color: gray;
+        border-color: #333;
+      }
+
+      .MuiDataGrid-footerContainer {
+        background-color: #1a1a1a;
+        border-color: #333;
+        color: gray;
+      }
+
+      .MuiTablePagination-root {
+        color: gray;
+      }
+
+      .MuiSvgIcon-root {
+        color: gray;
+      }
+
+      .MuiDataGrid-virtualScroller {
+        background-color: #111;
+      }
 
       .viewButton,
       .deleteButton,
