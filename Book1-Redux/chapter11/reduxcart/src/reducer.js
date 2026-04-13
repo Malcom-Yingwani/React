@@ -31,3 +31,29 @@ function cartReducer(state, action) {
 }
 
 export default cartReducer;
+
+/*
+Purpose:
+Manages the state of a shopping cart, including total cost and list of products.
+
+State Structure:
+- totalCost: مجموع cost of all products in the cart
+- productCart: array of product objects (name and price)
+
+Core Functionality:
+- Initializes state if undefined with empty cart and zero cost
+- Handles two actions:
+  1. "addProduct":
+     - Adds a product to productCart
+     - Increases totalCost by the product's price
+  2. "deleteProduct":
+     - Removes products matching the given product name
+     - Decreases totalCost by the product's price
+
+Implementation Details:
+- Uses immutable updates (spread operator and concat/filter)
+- Converts productPrice to integer using parseInt before calculations
+
+Output:
+Returns a new updated state object based on the action type
+*/

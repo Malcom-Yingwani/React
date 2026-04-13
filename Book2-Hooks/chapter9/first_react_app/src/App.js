@@ -97,57 +97,42 @@ function todosReducer(state, action) {
 ToDo App Summary
 ==================================================
 
+/*
 Purpose:
-- Implements a ToDo application using React.
-- Uses useReducer for state management and Context API
-  to share state across components.
+Main App component that manages global To-Do state using useReducer and provides it via Context API.
 
 State Structure:
-- Managed by useReducer with initial state:
-  {
-    todos: [
-      { id: 1, text: "finishing writing hooks chapter" },
-      { id: 2, text: "play with kids" },
-      { id: 3, text: "read bible" }
-    ]
-  }
+- state.todos: array of todo objects (each with id and text)
 
-Core Functionality (Reducer Actions):
+Context:
+- TodosContext provides global access to:
+  - state (todos list)
+  - dispatch (actions to modify todos)
 
-1. ADD:
-   - Creates a new todo with a unique ID (uuidv4).
-   - Adds it to the existing todos array.
+Core Functionality:
+- Uses useReducer with todosReducer to manage all todo state changes
+- Wraps ToDoList component in Context Provider
 
-2. DELETE:
-   - Removes a todo by filtering out the matching ID.
+Reducer Actions:
+1. "get":
+   - Replaces state.todos with fetched todos from API
 
-3. EDIT:
-   - Finds the todo by ID.
-   - Replaces it with an updated version while keeping
-     the rest of the list unchanged.
+2. "add":
+   - Adds a new todo to the existing array
 
-Context API:
-- TodosContext is created to provide global access to:
-  - state (todos)
-  - dispatch (actions)
-- Wrapped around ToDoList component to avoid prop drilling.
+3. "delete":
+   - Removes a todo by filtering out matching id
 
-Component Flow:
-- App initializes reducer and provides context.
-- ToDoList consumes context to display and update todos.
+4. "edit":
+   - Finds todo by id and replaces it with updated version
+   - Uses slice-based immutable update
 
-Data Flow:
-User Action -> dispatch(action) -> reducer updates state
--> new state returned -> UI re-renders
-
-Key Concepts:
-- useReducer for structured state logic
-- Immutable updates using spread and slice
-- Context API for global state sharing
-- Unique IDs using uuid
+Implementation Details:
+- Context API avoids prop drilling
+- useReducer centralizes state logic
+- uuid import is present but not used in current logic
+- ToDoList consumes state and dispatch from context
 
 Output:
-- Displays list of todos
-- Supports adding, deleting, and editing tasks
-- UI updates automatically on state change
+Provides global state management for a CRUD To-Do application with centralized reducer logic and shared context access
 */

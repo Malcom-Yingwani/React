@@ -113,3 +113,53 @@ Flow:
 User input -> handleSubmit -> dispatch action
 -> reducer updates state -> component re-renders with new todos
 */
+
+/*
+Purpose:
+Manages a full CRUD To-Do list with API integration and global state using Context.
+
+Dependencies:
+- useContext: access global todos state and dispatch
+- useState: manage local UI state (input, edit mode)
+- useEffect: sync API data with global state
+- useAPI: custom hook to fetch todos from backend
+- axios: handle HTTP requests (POST, PATCH, DELETE)
+
+State Structure:
+- Global (Context):
+  - state.todos: list of all todos
+- Local:
+  - todoText: current input value
+  - editMode: toggles between add and edit mode
+  - editTodo: stores the todo being edited
+
+Core Functionality:
+1. Fetching:
+   - useAPI fetches todos from backend endpoint
+   - useEffect dispatches "get" action whenever fetched data changes
+
+2. Adding:
+   - Sends POST request to API
+   - Dispatches "add" action with returned todo
+
+3. Editing:
+   - Clicking "Edit" loads selected todo into input
+   - Enables editMode
+   - On submit:
+     - Sends PATCH request to API
+     - Dispatches "edit" action with updated todo
+
+4. Deleting:
+   - Sends DELETE request to API
+   - Dispatches "delete" action to remove todo from state
+
+Implementation Details:
+- Uses controlled input for form handling
+- Button text dynamically switches between "Add" and "Edit"
+- Table renders todos using map()
+- Each todo uses id as a unique key
+- Combines local UI state with global state and backend sync
+
+Output:
+Renders a complete To-Do app UI with add, edit, delete, and persistent data from an API
+*/
